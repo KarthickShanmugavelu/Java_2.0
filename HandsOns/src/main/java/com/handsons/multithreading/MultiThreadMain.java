@@ -1,9 +1,40 @@
 package com.handsons.multithreading;
 
+import java.util.concurrent.TimeUnit;
+
 public class MultiThreadMain {
     public static void main(String[] args) {
-        var thread = Thread.currentThread();
+        /*var thread = Thread.currentThread();
         printThreadInfo(thread);
+        thread.setName("MainGuy");
+        thread.setPriority(Thread.MAX_PRIORITY);
+        printThreadInfo(thread);*/
+
+        CustomThreadClass customThreadClass = new CustomThreadClass();
+        customThreadClass.start();
+
+        Runnable myRunnable = ()->{
+            for(int i=0;i<8;i++){
+                System.out.println(" Custom Thread using Runnable interface ");
+                try{
+                    TimeUnit.MILLISECONDS.sleep(250);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        Thread myThread = new Thread(myRunnable);
+        myThread.start();
+
+        for(int i=0;i<4;i++){
+            System.out.println(" MainThread ");
+            try{
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void printThreadInfo(Thread thread){
