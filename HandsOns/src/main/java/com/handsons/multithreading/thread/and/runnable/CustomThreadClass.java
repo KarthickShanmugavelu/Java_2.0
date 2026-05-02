@@ -1,4 +1,4 @@
-package com.handsons.multithreading;
+package com.handsons.multithreading.thread.and.runnable;
 
 public class CustomThreadClass extends Thread{
 

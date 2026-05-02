@@ -1,14 +1,14 @@
-package com.handsons.multithreading;
+package com.handsons.multithreading.thread.and.runnable;
 
 import java.util.concurrent.TimeUnit;
 
 public class MultiThreadMain {
     public static void main(String[] args) {
-        /*var thread = Thread.currentThread();
+        Thread thread = Thread.currentThread();
         printThreadInfo(thread);
         thread.setName("MainGuy");
         thread.setPriority(Thread.MAX_PRIORITY);
-        printThreadInfo(thread);*/
+        printThreadInfo(thread);
 
         CustomThreadClass customThreadClass = new CustomThreadClass();
         customThreadClass.start();
