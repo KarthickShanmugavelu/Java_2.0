@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 
 public class SupplyAsyncDemo {
 
-    public List<Employee> getEmployeeListWithDefaultThreadPoolAndRunnableInstance() throws ExecutionException, InterruptedException {
+    public List<Employee> getEmployeeListWithDefaultThreadPool() throws ExecutionException, InterruptedException {
         Executor executor = Executors.newCachedThreadPool();
         CompletableFuture<List<Employee>> completableFuture = CompletableFuture.supplyAsync(()->{
             ObjectMapper objectMapper = new ObjectMapper();
@@ -37,7 +37,7 @@ public class SupplyAsyncDemo {
         Long end = System.currentTimeMillis();
         System.out.println("Timetaken to read "+employeeList.size()+" sequentially is "+(end-start));
         start=System.currentTimeMillis();
-        List<Employee> employeeList1 = supplyAsyncDemo.getEmployeeListWithDefaultThreadPoolAndRunnableInstance();
+        List<Employee> employeeList1 = supplyAsyncDemo.getEmployeeListWithDefaultThreadPool();
         end=System.currentTimeMillis();
         System.out.println("Timetaken to read "+employeeList1.size()+" sequentially is "+(end-start));
 
